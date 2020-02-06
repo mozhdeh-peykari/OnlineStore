@@ -1,0 +1,27 @@
+﻿@model Entities.Product
+@{
+    ViewBag.Title = "ویرایش محصول";
+    Layout = "_AdminLayout";
+}
+
+<form asp-action="Edit" method="post">
+    <input asp-for="Id" type="hidden"/>
+
+    <span asp-validation-for="Name" class="text-danger"></span>
+    <label asp-for="Name">نام</label>
+    <input asp-for="Name" />
+
+    <label asp-for="Description">توضیحات</label>
+    <input asp-for="Description" />
+
+    <span asp-validation-for="Price" class="text-danger"></span>
+    <label asp-for="Price">قیمت</label>
+    <input asp-for="Price" />
+
+    <span asp-validation-for="Category" class="text-danger"></span>
+    <label asp-for="Category">دسته بندی</label>
+    <input asp-for="Category" />
+
+    <button type="submit" class="btn btn-success">ذخیره</button>
+    <a asp-action="Index" class="btn">انصراف</a>
+</form>

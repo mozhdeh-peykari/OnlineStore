@@ -1,0 +1,21 @@
+﻿@model Order
+<h2>تکمیل فرایند خرید</h2>
+<p>لطفا اطلاعات را برای ارسال سفارش تکمیل نمایید</p>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form asp-action="Checkout" method="post">
+    <div class="form-group">
+        <label>نام</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>شهر</label>
+        <input asp-for="City" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>آدرس</label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+    <div class="text-center">
+        <input type="submit" class="btn btn-primary" value="تکمیل"/>
+    </div>
+</form>

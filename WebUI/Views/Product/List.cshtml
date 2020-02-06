@@ -1,0 +1,9 @@
+﻿@model WebUI.Models.ProductViewModel
+
+    @foreach(var item in Model.Products)
+    {
+        @Html.Partial("ProductInfo", item);
+    }
+
+<div page-model="@Model.Paging" page-class-selected="btn-primary" page-class-default="btn-default"
+     page-url-category="@Model.CurrentCategory" page-action="List"></div>

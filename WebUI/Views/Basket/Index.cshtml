@@ -1,0 +1,40 @@
+﻿@model WebUI.Models.BasketViewModel
+
+
+<table class="table table-striped table-bordered">
+    <tbody>
+        <tr>
+            <th>کالا</th>
+            <th>تعداد</th>
+            <th>قیمت</th>
+            <th>جمع</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.basket.GetItems)
+        {
+            <tr>
+                <td>@item.Product.Name</td>
+                <td>@item.Quantity</td>
+                <td>@item.Product.Price</td>
+                <td>@item.Product.Price * @item.Quantity</td>
+                <td>
+                    <form asp-action="RemoveFromBasket" method="post">
+                        <input type="hidden" value="@item.Product.Id" name="Id" />
+                        <button type="submit" class="btn btn-danger">حذف از سبد</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">جمع کل</td>
+            <td>@Model.basket.GetTotalValue()</td>
+        </tr>
+    </tfoot>
+    
+</table>
+<div>
+    <a class="btn btn-primary" asp-controller="Order" asp-action="Index" >تکمیل فرآیند خرید</a>
+</div>
